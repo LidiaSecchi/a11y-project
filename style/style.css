@@ -1,0 +1,39 @@
+button {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: black;
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  display: inline-flex;
+  gap: 0.5em;
+  border-radius: 0.5em;
+  transition: all 0.2s ease-in-out;
+
+  &.start {
+    display: none;
+  }
+
+  &:hover {
+    background-color: lightseagreen;
+  }
+
+  &:focus-visible {
+    outline: 2px solid lightseagreen;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px black, 0 0 0 4px lightseagreen;
+  }
+
+  &[aria-expanded="true"] {
+    svg {
+      rotate: 180deg;
+    }
+  }
+}
+
+.panel {
+  display: none;
+}
+.open {
+  display: block;
+}
