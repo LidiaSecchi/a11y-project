@@ -81,7 +81,7 @@ const Menu = () => {
     <header>
       <nav className="bg-gray-800 dark:bg-gray-900 text-white shadow-md">
         <div className="container mx-auto px-4 py-3">
-          <ul ref={trapRef} className="flex gap-6 items-center">
+          <ul role="list" ref={trapRef} className="flex gap-6 items-center">
             <li>
               <Link
                 className="px-4 py-2 rounded hover:text-gray-300 transition-colors"
@@ -116,14 +116,11 @@ const Menu = () => {
               </button>
               <ul
                 id="submenuDay2"
-                role="menu"
-                aria-labelledby="submenuDay2"
                 className="submenu absolute left-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-[.focus-within]:opacity-100 group-[.focus-within]:visible transition-all"
               >
                 <li>
                   <Link
                     href="/day2-focus-trap"
-                    role="menuitem"
                     className="block px-4 py-2 hover:bg-gray-600 rounded-t-md"
                   >
                     Focus Trap
@@ -132,7 +129,6 @@ const Menu = () => {
                 <li>
                   <Link
                     href="/day2-form"
-                    role="menuitem"
                     className="block px-4 py-2 hover:bg-gray-600"
                   >
                     Form
@@ -141,7 +137,6 @@ const Menu = () => {
                 <li>
                   <Link
                     href="/day2-view-toggle"
-                    role="menuitem"
                     className="block px-4 py-2 hover:bg-gray-600 rounded-b-md"
                   >
                     View Toggle
@@ -174,9 +169,8 @@ const Menu = () => {
                 </svg>
               </button>
               <ul
+                role="list"
                 id="submenuDay3"
-                role="menu"
-                aria-labelledby="submenuDay3"
                 className="submenu absolute left-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-[.focus-within]:opacity-100 group-[.focus-within]:visible transition-all"
               >
                 <li>...coming soon</li>
