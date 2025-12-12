@@ -29,6 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ul
+          className="text-gray-700 dark:text-gray-300"
+          role="list"
+          id="liveRegion"
+          aria-live="assertive"
+        ></ul>
         <Menu />
         {children}
       </body>

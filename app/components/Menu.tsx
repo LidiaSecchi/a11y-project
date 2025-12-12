@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Menu = () => {
   const trapRef = useRef<HTMLUListElement>(null);
   const outsideButtonRef = useRef<HTMLButtonElement>(null);
+  const [trapActive, setTrapActive] = useState(true);
 
   useEffect(() => {
     const { current: trapElement } = trapRef;
@@ -21,6 +22,7 @@ const Menu = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
       if (e.key === "Escape") {
+        setTrapActive(false);
         outsideButtonRef.current?.focus();
         return;
       }
@@ -59,13 +61,15 @@ const Menu = () => {
           }
         }, 0);
 
-        if (!e.shiftKey && document.activeElement === lastEl) {
-          e.preventDefault();
-          (firstEl as HTMLElement).focus();
-        }
-        if (e.shiftKey && document.activeElement === firstEl) {
-          e.preventDefault();
-          (lastEl as HTMLElement).focus();
+        if (trapActive) {
+          if (!e.shiftKey && document.activeElement === lastEl) {
+            e.preventDefault();
+            (firstEl as HTMLElement).focus();
+          }
+          if (e.shiftKey && document.activeElement === firstEl) {
+            e.preventDefault();
+            (lastEl as HTMLElement).focus();
+          }
         }
       }
     };
@@ -76,7 +80,7 @@ const Menu = () => {
     return () => {
       trapElement.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [trapActive]);
   return (
     <header>
       <nav className="bg-gray-800 dark:bg-gray-900 text-white shadow-md">

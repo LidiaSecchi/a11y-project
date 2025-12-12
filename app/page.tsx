@@ -43,6 +43,14 @@ export default function Home() {
             >
               Day2 - view toggle
             </Link>
+            <Link
+              className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 transition-colors"
+              title="Go to the day3 page"
+              aria-label="Go to the day3 page"
+              href="/day3-tabs-better"
+            >
+              Day3 - tabs
+            </Link>
           </div>
         </div>
       </main>

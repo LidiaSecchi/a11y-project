@@ -1,0 +1,121 @@
+:root {
+  --base-bg: #fff;
+  --tab-border: #777;
+  --tab-border-light: #777;
+  --tab-bg: #efefef;
+  --text-color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-bg: #000;
+    --tab-border: #555;
+    --tab-border-light: #888;
+    --tab-bg: #1a1a1a;
+    --text-color: #e0e0e0;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --base-bg: #fff;
+    --tab-border: #000000;
+    --tab-border-light: #000000;
+    --tab-bg: #000000;
+    --text-color: #ffffff;
+  }
+
+  [role="tab"] {
+    border: 2px solid #000000 !important;
+  }
+
+  [role="tab"][aria-selected="true"] {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 4px solid #000000 !important;
+  }
+
+  [role="tabpanel"] {
+    border: 2px solid #000000;
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --base-bg: #000;
+    --tab-border: #ffffff;
+    --tab-border-light: #ffffff;
+    --tab-bg: #ffffff;
+    --text-color: #000000;
+  }
+
+  [role="tab"] {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  [role="tab"][aria-selected="true"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-bottom: 4px solid #ffffff !important;
+  }
+
+  [role="tabpanel"] {
+    border: 2px solid #ffffff;
+  }
+}
+
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  a {
+    color: var(--text-color);
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+.tabs {
+  padding: 1rem 0;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  [role="tablist"] {
+    display: flex;
+    gap: 1rem;
+  }
+  [role="tab"] {
+    background: var(--base-bg);
+    color: var(--text-color);
+    border-radius: 0.5em 0.5em 0 0;
+    white-space: nowrap;
+    /* &:hover, */
+    /* &:focus-visible {
+      border-radius: 0.5em 0.5em 0 0;
+      border-bottom: 3px solid var(--tab-border-light);
+      /* outline: none;
+      box-shadow: none;
+      outline-offset: 0; 
+    } */
+    &[aria-selected="true"] {
+      background-color: var(--tab-bg);
+      font-weight: bold;
+      border-bottom: 3px solid var(--tab-border);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+  }
+}
+
+[role="tabpanel"] {
+  background-color: var(--tab-bg);
+  color: var(--text-color);
+  padding: 1rem;
+  &.is-hidden {
+    display: none;
+  }
+}
